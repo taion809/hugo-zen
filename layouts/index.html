@@ -1,12 +1,16 @@
 {{ partial "header.html" . }}
-
-	<main role="main">
+    
+    <div class="pure-u-1 pure-u-md-3-4">
+	   <main role="main">
 {{ range .Data.Pages }}
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+		<article class="list" itemscope itemtype="http://schema.org/Blog">
+			<h2 class="entry-title" itemprop="headline"><a href="{{ .RelPermalink }}">{{ .Title }}</a>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 02, 2006" }}</time></span>
+            &nbsp;•&nbsp;<span>{{ .Description }}</span>
+            </h2>
 		</article>
 {{ end }}
-	</main>
+	   </main>
+    </div>
 
 {{ partial "footer.html" . }}
